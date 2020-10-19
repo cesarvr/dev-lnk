@@ -10,10 +10,10 @@ Clone [realm-js project](https://github.com/realm/realm-js) and install the requ
   - [brew](https://brew.sh/) (to install `` $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" ``)
   - ``brew install nvm``
   - [cocoapods](https://guides.cocoapods.org/using/getting-started.html)
-  - Android SDK 23+
-  - Android NDK 21.0
-    - Available via the SDK Manager in Android Studio **Tools > SDK Manager**.
-    - From the command-line: ``$ANDROID_HOME/tools/bin/sdkmanager --install "ndk;21.0.6113669"``.
+- Android SDK 23+
+- Android NDK 21.0
+  - Available via the SDK Manager in Android Studio **Tools > SDK Manager**.
+  - From the command-line: ``$ANDROID_HOME/tools/bin/sdkmanager --install "ndk;21.0.6113669"``.
 
 ## Getting Started
 
