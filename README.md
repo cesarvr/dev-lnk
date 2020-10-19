@@ -115,7 +115,7 @@ For iOS the things is a bit different as per today we don't ship a pre-compiled 
 
 But we can keep the source files in sync between the main source of truth the ``realm-js`` folder against the iOS project embedded in the React Native project (```sample-rn-project```). So first as we did with the Android project we add a new entry to the script:
 
-```sh
+```js
 // Android
 syncByAppend('./react-native/android/build/realm-react-ndk/all',
             '../sample-rn-project/node_modules/realm/android/src/main/jniLibs',
@@ -159,7 +159,7 @@ Assuming we have the same folder structure:
 
 We jump to the ``realm-js`` root folder and open the ```nlk.js``` script, jump to the bottom and add:
 
-```sh
+```js
 // Android
 syncByAppend('./react-native/android/build/realm-react-ndk/all',
             '../sample-rn-project/node_modules/realm/android/src/main/jniLibs',
