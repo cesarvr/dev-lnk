@@ -36,7 +36,7 @@ npm install
 
 ### Deploying Changes
 
-Right now you should have two folders:
+Right now you should have three folders:
 
 ```sh
   realm-js  #realm-js source code.
@@ -45,9 +45,9 @@ Right now you should have two folders:
   sample-rn-project #the sample react-native project.
 ```
 
-What you want to do is to do all your work on the ```realm-js``` project and in NodeJS project ``hello-sync`` and the React Native project (``sample-rn-project``).
+What you want to do is to do all your work on the ```realm-js``` project and use the other two projects to test and deploy any new changes.
 
-To do that you can install this tool:
+To do that you can use the help of this tool:
 
 ```sh
   cd realm-js  #Jump to the realm-js root folder.
@@ -56,11 +56,12 @@ To do that you can install this tool:
 
 You can configure this tool to watch some sections of your ``realm-js`` and deploy those changes automatically to any of those projects.
 
-### Android
+### On Android
 
-Let's start with Android for example, first let's configure the ```nlk.js``` tool to Android changes into the React Native project.
 
-Open ```nlk.js``` with a text editor go to the bottom and add:
+First let's configure the ```nlk.js``` tool to watch for Android changes and deploy this into the React Native project.
+
+Open ```nlk.js``` with your favourite text editor like ``vim``, go to the bottom and add:
 
 ```js
 syncByAppend('./react-native/android/build/realm-react-ndk/all',   // Assuming we are in the realm-js root folder.
@@ -73,10 +74,10 @@ syncByAppend('./react-native/android/build/realm-react-ndk/all',   // Assuming w
 After adding that you can run it by doing:
 
 ```sh
-node nlk.js // it will now wait for changes...
+node nlk.js // it will sleep and wait for changes...
 ```
 
-Just after that you can start doing your changes on the ``realm-js/src`` folder for example and once your are ready you can do:
+Open a new terminal tab and start doing your changes on the ``realm-js/src`` folder for example and once your are ready you can build an Android binary by doing:
 
 ```sh
 # from the realm-js root folder...
@@ -85,7 +86,10 @@ cd react-native/android/  # React Native Android project.
 ./gradlew publishAndroid # Take a coffee...
 ```
 
-After a while when the compilation has finish you will see this:
+As soon as the compilation finish this module will be deployed into the React Native project (``sample-rn-project``).
+
+
+If you visit the script tab you will see the files that have been sync:
 
 ```sh
 sync done for: librealmreact.so.  11:54:30   #arm
@@ -97,17 +101,19 @@ sync done for: librealmreact.so.  11:54:30
 > This will trigger any time a new binary object is created...
 
 
-This means that binaries are deployed, now you can just can navigate to the React Native project and do:
+Now you can just can navigate to the React Native project and do:
 
 ```sh
 npx react-native run-android
 ```
 
+
+
 ### iOS
 
-For iOS the things is a bit different as per today we don't use a pre-compiled binary like we do on Android. But we can use the ```nlk``` to keep the source files in sync that way you can use your favourite tool to edit ```.hpp``` source files and use XCode to compile.
+For iOS the things is a bit different as per today we don't ship a pre-compiled binary like we do on Android.
 
-First as we did with the Android project we add a new entry to the ```nlk``` script:
+But we can keep the source files in sync between the main source of truth the ``realm-js`` folder against the iOS project embedded in the React Native project (```sample-rn-project```). So first as we did with the Android project we add a new entry to the script:
 
 ```sh
 // Android
@@ -131,7 +137,7 @@ sync done for: js_logger.hpp.  12:54:26
 Now you can just open the xcode project in ```sample-rn-project``` by doing:
 
 ```sh
-open ../sample-rn-project/ios/MyAwesomeRealmApp.xcworkspace/
+open sample-rn-project/ios/MyAwesomeRealmApp.xcworkspace/
 ```
 
 After that you can press ```CMD + B``` and see your changes compiled, then you do ```CMD + R``` and you run the new code on the emulator.
