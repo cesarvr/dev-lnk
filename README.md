@@ -1,6 +1,9 @@
 # Working With Realm-JS
 
-## Pre-requisites
+# Getting Started
+
+
+## Pre-Requisites 
 
 Clone [realm-js project](https://github.com/realm/realm-js) and install the required dependencies:
 
@@ -15,7 +18,7 @@ Clone [realm-js project](https://github.com/realm/realm-js) and install the requ
   - Available via the SDK Manager in Android Studio **Tools > SDK Manager**.
   - From the command-line: ``$ANDROID_HOME/tools/bin/sdkmanager --install "ndk;21.0.6113669"``.
 
-## Getting Started
+## Testing
 
 To test your changes on react native you can clone this sample project.
 
