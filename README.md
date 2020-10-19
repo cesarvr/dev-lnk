@@ -113,7 +113,9 @@ npx react-native run-android
 
 For iOS the things is a bit different as per today we don't ship a pre-compiled binary like we do on Android.
 
-But we can keep the source files in sync between the main source of truth the ``realm-js`` folder against the iOS project embedded in the React Native project (```sample-rn-project```). So first as we did with the Android project we add a new entry to the script:
+But we can keep the source files in sync between the main source of truth the ``realm-js`` folder against the iOS project embedded in the React Native project (```sample-rn-project```). 
+
+First as we did with the Android project we add a new entry to the script:
 
 ```js
 // Android
