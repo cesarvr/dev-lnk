@@ -51,21 +51,6 @@ const copy = (src, dest) => {
         console.log(`debug: copying filename ${src} to ${dest}`)
 }
 
-const folder_to_update = (folder) => {
-    let node_module_destination = fs.readFileSync('./cfg').toString().replace('\n', '') 
-    node_module_destination = `${node_module_destination}`
-
-    if(DEBUG)
-        console.log('debug -> ', node_module_destination)
-
-    if(!fs.existsSync(node_module_destination)){
-        console.log(`Folder ${node_module_destination} not found...`)
-        process.exit(1)
-    }
-
-    return node_module_destination 
-}
-
 const syncLibraries = () => {
     let dests = android_destination_folder() 
     let sources = targets.reduce((curr, next) => Object.assign(curr, {[next]:`${rsb(next)}/`}) , {}) 
@@ -78,39 +63,6 @@ const syncLibraries = () => {
     Object.keys(sources).forEach(target => {
         copy(`${sources[target]}/librealmreact.so`,`${dests[target]}/librealmreact.so`)
     }) 
-}
-
-
-const merge = (source, destination) => {
-
-    let src = source.split('/')
-    let dst = destination.split('/')
-
-    let filename = src.pop()  
-    let dst_root = dst.pop()
-
-    let range = src.length - 1 
-    let path = [] 
-
-    while( range >= 0 ){
-
-        if( dst_root === src[range] ) {
-            destination = destination+'/'+path.join('/') 
-            if(fs.existsSync(destination)){
-                destination = destination + '/' + filename
-                return {src: source,  dst: destination}
-            }else{
-                console.log( `refusing to merge ${source} and ${destination} doesn't have the same folder structure...`)
-                process.exit(1)
-            }
-        }else  
-            path.unshift(src[range])
-
-        range--
-    }
-
-    console.log( `refusing to merge ${source} and ${destination} doesn't have the same folder structure...`)
-    process.exit(1)
 }
 
 const merge_append = (_source, _destination, _fname) => {
@@ -143,7 +95,7 @@ const sourcesSync = async (_merge_module, source, destination, regex) => {
     })
 }
 
-const syncByMerging = sourcesSync.bind(null, () => merge)
+// you can inject custom merge-copy strategies here
 const syncByAppend  = sourcesSync.bind(null, merge_append)
 
 let arg = process.argv[2]
@@ -153,20 +105,20 @@ let arg = process.argv[2]
 
 
 /* look for source files */
-syncByAppend('../realm-js/src', 
+/*syncByAppend('../realm-js/src', 
             '../react-native-realm/node_modules/realm/src', 
             RegExp('.*'))
 
 /*listen for changes on nodejs module*/
-syncByAppend('../realm-js/compiled', 
+/*syncByAppend('../realm-js/compiled', 
             '../hello-sync/node_modules/realm/compiled', 
             RegExp('realm.node'))
             
 
 /*listen for changes on nodejs module*/
-syncByAppend('../realm-js/react-native/android/build/realm-react-ndk/all', 
+/*syncByAppend('../realm-js/react-native/android/build/realm-react-ndk/all', 
             '../react-native-realm/node_modules/realm/android/src/main/jniLibs', 
             RegExp('librealmreact.so'))
-
+*/
 //test
-//syncByAppend('./a/p', './b/p', RegExp('.*'))
+syncByAppend('./a/p', './b/p', RegExp('.*'))
