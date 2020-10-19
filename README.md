@@ -67,11 +67,12 @@ First let's configure the ```nlk.js``` tool to watch for Android changes and dep
 Open ```nlk.js``` with your favourite text editor like ``vim``, go to the bottom and add:
 
 ```js
-syncByAppend('./react-native/android/build/realm-react-ndk/all',   // Assuming we are in the realm-js root folder.
-            '../sample-rn-project/node_modules/realm/android/src/main/jniLibs', // targeting the jniLibs.
-            RegExp('librealmreact.so'))  // Scan for changes in this shared object, this object will change when you compile.
+syncByAppend(
+  './react-native/android/build/realm-react-ndk/all', // Source folder...
+  '../sample-rn-project/node_modules/realm/android/src/main/jniLibs', // Target folder...
+  RegExp('librealmreact.so'))  // copy librealmreact.so if a change has been detected...
 ```
-> As you can see this can be use for other purposes, is just a dumb script that copy files anytime they change... Feel free to use more complex [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) to match more complicated cases.
+> As you can see this is just a dumb script that copy files anytime they change... you can use [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) to handle more complex scenarios.
 
 
 After adding that you can run it by doing:
