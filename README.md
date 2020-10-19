@@ -78,7 +78,7 @@ syncByAppend(
 After adding that you can run it by doing:
 
 ```sh
-node nlk.js // it will sleep and wait for changes...
+node nlk.js # it will sleep and wait for changes...
 ```
 
 Open a new terminal tab and start doing your changes on the ``realm-js/src`` folder for example and once your are ready you can build an Android binary by doing:
@@ -86,7 +86,7 @@ Open a new terminal tab and start doing your changes on the ``realm-js/src`` fol
 ```sh
 # from the realm-js root folder...
 
-cd react-native/android/  # React Native Android project.
+cd react-native/android/  # enter the React Native Android project.
 ./gradlew publishAndroid # Take a coffee...
 ```
 
