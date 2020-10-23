@@ -10,16 +10,27 @@ Clone [realm-js project](https://github.com/realm/realm-js) and install the requ
 - Xcode 9.4+
 - [node.js](https://nodejs.org/en/) version 10 or later
 - On MacOS you will need:
-  - [brew](https://brew.sh/) -> ``$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"``
-  - You might need NVM -> ``brew install nvm``
-  - To work the command-line you will need: 
-    - Openjdk 1.8 -> ``brew install openjdk@8`` 
-    - NDK -> ``export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/21.0.6113669``
-  - [cocoapods](https://guides.cocoapods.org/using/getting-started.html)
+  ```sh
+    #Install brew 
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" 
+    
+    #Install NVM, OpenJDK 8 and cocoapods
+    brew install nvm openjdk@8 cocoapods
+   ```
+ - Android Setup to build from the command-line: 
+   ```sh
+    # Location of your Android SDK
+    export ANDROID_HOME=$HOME/Library/Android/sdk
+    
+    #Install NDK 
+    $ANDROID_HOME/tools/bin/sdkmanager --install "ndk;21.0.6113669"
+    
+    #Setup NDK
+    export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/21.0.6113669 
+  ```
 - Android SDK 23+
 - Android NDK 21.0
   - Available via the SDK Manager in Android Studio **Tools > SDK Manager**.
-  - From the command-line: ``$ANDROID_HOME/tools/bin/sdkmanager --install "ndk;21.0.6113669"``.
 
 ## Testing
 
