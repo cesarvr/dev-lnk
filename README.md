@@ -12,7 +12,9 @@ Clone [realm-js project](https://github.com/realm/realm-js) and install the requ
 - On MacOS you will need:
   - [brew](https://brew.sh/) -> ``$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"``
   - You might need NVM -> ``brew install nvm``
-  - To work locally you will need Openjdk 1.8 -> ``brew install openjdk@8``
+  - To work the command-line you will need: 
+    - Openjdk 1.8 -> ``brew install openjdk@8`` 
+    - NDK -> ``export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/21.0.6113669``
   - [cocoapods](https://guides.cocoapods.org/using/getting-started.html)
 - Android SDK 23+
 - Android NDK 21.0
