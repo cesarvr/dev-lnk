@@ -9,6 +9,10 @@ Clone [realm-js project](https://github.com/realm/realm-js) and install the requ
 
 - Xcode 9.4+
 - [node.js](https://nodejs.org/en/) version 10 or later
+- Android SDK 23+
+- Android NDK 21.0
+  - Available via the SDK Manager in Android Studio **Tools > SDK Manager**.
+  
 - On MacOS you will need:
   ```sh
     #Install brew 
@@ -28,9 +32,7 @@ Clone [realm-js project](https://github.com/realm/realm-js) and install the requ
     #Setup NDK
     export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/21.0.6113669 
     ```
-- Android SDK 23+
-- Android NDK 21.0
-  - Available via the SDK Manager in Android Studio **Tools > SDK Manager**.
+
 
 ## Testing
 
