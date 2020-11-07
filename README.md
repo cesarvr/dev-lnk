@@ -23,12 +23,13 @@ Clone [realm-js project](https://github.com/realm/realm-js) and install the requ
    ```
  - Android Setup to build from the command-line: 
    ```sh
+    # Before following this make sure java is available in the command line.
     # Location of your Android SDK
     export ANDROID_HOME=$HOME/Library/Android/sdk
     
     #To install NDK
     $ANDROID_HOME/tools/bin/sdkmanager --install "ndk;21.0.6113669"
-    # Make sure java is available in the command line.
+
     
     #Setup NDK
     export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/21.0.6113669 
