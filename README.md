@@ -29,7 +29,6 @@ Clone [realm-js project](https://github.com/realm/realm-js) and install the requ
     
     #To install NDK
     $ANDROID_HOME/tools/bin/sdkmanager --install "ndk;21.0.6113669"
-
     
     #Setup NDK
     export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/21.0.6113669 
